@@ -37,12 +37,6 @@ const songsList = [
     image: "ecco.png",
   },
   {
-    name: "D-925",
-    link: "d925.mp3",
-    artist: "Bladee",
-    image: "cover.jpg",
-  },
-  {
     name: "Mallwhore Freeestyle",
     link: "Mallwhore Freeestyle.mp3",
     artist: "Bladee",
