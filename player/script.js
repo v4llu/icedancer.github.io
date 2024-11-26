@@ -3,7 +3,6 @@ const nextButton = document.getElementById("next");
 const repeatButton = document.getElementById("repeat");
 const shuffleButton = document.getElementById("shuffle");
 const audio = document.getElementById("audio");
-const songImage = document.getElementById("song-image");
 const songName = document.getElementById("song-name");
 const songArtist = document.getElementById("song-artist");
 const pauseButton = document.getElementById("pause");
@@ -34,7 +33,7 @@ const songsList = [
     name: "OKK",
     link: "OKK.mp3",
     artist: "Bladee",
-    image: "ecco.png",
+    image: "cover.jpg",
   },
   {
     name: "Mallwhore Freeestyle",
@@ -178,11 +177,10 @@ const timeFormatter = (timeInput) => {
 //set song
 const setSong = (arrayIndex) => {
   //this extracts all the variables from the object
-  let { name, link, artist, image } = songsList[arrayIndex];
+  let { name, link, artist } = songsList[arrayIndex];
   audio.src = link;
   songName.innerHTML = name;
   songArtist.innerHTML = artist;
-  songImage.src = image;
   //display duration when metadata loads
   audio.onloadedmetadata = () => {
     maxDuration.innerText = timeFormatter(audio.duration);
@@ -318,9 +316,6 @@ audio.addEventListener("timeupdate", () => {
 const initializePlaylist = () => {
   for (let i in songsList) {
     playlistSongs.innerHTML += `<li class='playlistSong' onclick='setSong(${i})'>
-            <div class="playlist-image-container">
-                <img src="${songsList[i].image}"/>
-            </div>
             <div class="playlist-song-details">
                 <span id="playlist-song-name">
                     ${songsList[i].name}
